@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">TaskManager</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- Authorize -->
+    <string name="Login">Логин</string>
+    <string name="login_hint">Логин</string>
+    <string name="Password">Пароль</string>
+    <string name="password_hint">Пароль</string>
+    <string name="SignInButton">Войти</string>
+    <string name="LoadMsg">Загрузка…</string>
+    <string name="login_email_hint">Логин</string>
+    <string name="login_password_hint">Пароль</string>
+    <string name="login_signup_hint">Зарегестрироваться</string>
+
+
+    <!-- Task Menu -->
+    <string name="menu_todo">Ожидает</string>
+    <string name="menu_in_progress">В процессе</string>
+    <string name="menu_done">Выполено</string>
+    <string name="add_task">add_task</string>
+</resources>
