@@ -4,32 +4,23 @@ import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.viewModels
-import androidx.navigation.NavHostController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.taskmanager.R
 import com.example.taskmanager.api.ApiClient
-import com.example.taskmanager.api.TaskApi
 import com.example.taskmanager.api.TaskController
 import com.example.taskmanager.databinding.ActivityMainMenuBinding
 import com.example.taskmanager.payload.response.BaseResponse
-import com.example.taskmanager.ui.addtask.addActivity
+import com.example.taskmanager.ui.addtask.AddTaskActivity
 import com.example.taskmanager.ui.authorize.AuthActivity
-import com.example.taskmanager.ui.authorize.Login.LoginVM
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 
 class MainMenu : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -48,7 +39,7 @@ class MainMenu : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.appBarMain.toolbar)
         binding.appBarMain.fab.setOnClickListener { view ->
-            startActivity(Intent(this, addActivity::class.java))
+            startActivity(Intent(this, AddTaskActivity::class.java))
         }
         val builder: AlertDialog.Builder = AlertDialog.Builder(this)
         builder.setCancelable(false)

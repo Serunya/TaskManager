@@ -1,20 +1,18 @@
-package com.example.taskmanager.ui.addtask
+package com.example.taskmanager.ui.addtask.adapters
 
-import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.replace
 import androidx.fragment.app.setFragmentResult
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskmanager.R
 import com.example.taskmanager.payload.response.UserResponse
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class UsersViewAdapter(val context: FragmentActivity, val users: ArrayList<UserResponse>,val addFragment: addFragment) :
+class UsersViewAdapter(val context: FragmentActivity, val users: ArrayList<UserResponse> ,val b : BottomSheetDialogFragment   ) :
     RecyclerView.Adapter<UsersViewAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -34,12 +32,11 @@ class UsersViewAdapter(val context: FragmentActivity, val users: ArrayList<UserR
         holder.firstName.text = user.firstName
         holder.secondName.text = user.secondName
         holder.view.setOnClickListener({
+            b.dismiss()
             val bundle = Bundle()
             bundle.putInt("userId",user.id)
-            bundle.putString("firstName",user.firstName)
-            bundle.putString("secondName",user.secondName)
-            context.supportFragmentManager.setFragmentResult("user",bundle)
-            context.supportFragmentManager.beginTransaction().replace(R.id.addFragmentContriner,addFragment).commit()
+            bundle.putString("Name",user.firstName + " " + user.secondName)
+            b.setFragmentResult("user",bundle)
         })
     }
 

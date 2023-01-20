@@ -17,27 +17,17 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.lang.Exception
 
-class addVM : ViewModel() {
-    val listItems = ArrayList<String>()
+class AddTaskVM : ViewModel() {
     val saveResult = MutableLiveData<BaseResponse<Boolean>>()
 
-
-    var executorId : Int = 0
-    var title : String = ""
-    var description = ""
-    var executorName = "Выберите Исполнителя"
-    var date : String = "Выберите Дату"
-
-    fun saveTask() {
-        Log.println(Log.INFO,"saveTask","$title $description $executorId $date")
+    fun saveTask(taskRequest: TaskRequest,points : ArrayList<String>) {
         saveResult.value = BaseResponse.Loading()
         viewModelScope.launch {
             try{
                 Log.println(Log.INFO, "saveTask", "sendTask")
-                val taskRequest = TaskRequest(title,description,executorId,date.replace('.','/'))
                 val response = saveTask(taskRequest)
                 if (response?.code() == 200){
-                    savePoints(response.body()?.taskId ?: 0)
+                    savePoints(response.body()?.taskId ?: 0, points)
                 }
                 else{
                     saveResult.value = BaseResponse.Error(response?.message(),response?.code() ?: 404)
@@ -49,17 +39,15 @@ class addVM : ViewModel() {
         }
     }
 
-    suspend fun saveTask(taskRequest: TaskRequest) : Response<TaskIdResponse>?{
+    private suspend fun saveTask(taskRequest: TaskRequest) : Response<TaskIdResponse>?{
         return TaskApi.getApi()?.addTask(taskRequest)
     }
 
-    fun savePoints(taskId: Int) {
-        for (p in listItems)
-            Log.println(Log.INFO,"point",p)
+    private fun savePoints(taskId: Int, pointsContent : ArrayList<String>) {
         viewModelScope.launch {
             Log.println(Log.INFO,"saveTask","sendPoints")
             val points = ArrayList<PointRequest>()
-            for(item in listItems){
+            for(item in pointsContent){
                 points.add(PointRequest(item,taskId,false))
             }
             val pointRequest = PointsRequest(points)
@@ -73,10 +61,8 @@ class addVM : ViewModel() {
         }
     }
 
-    suspend fun addPoints(pointsRequest: PointsRequest): Response<String>? {
+    private suspend fun addPoints(pointsRequest: PointsRequest): Response<String>? {
         return PointApi.getApi()?.addPoints(pointsRequest)
     }
-
-
 
 }

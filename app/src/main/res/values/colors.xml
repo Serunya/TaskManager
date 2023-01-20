@@ -17,4 +17,5 @@
     <color name="loginBkColor">#f0f0f0</color>
     <color name="HeaderColor">#aa00ff</color>
     <color name="inputBorderPurple">#f1d5ff</color>
+    <color name="TITLE_COLOR_GOES_HERE">#ffffff</color>
 </resources>

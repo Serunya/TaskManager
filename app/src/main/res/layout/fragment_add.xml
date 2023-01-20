@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.addtask.addFragment"
+    tools:context=".ui.addtask.fragments.mainFragment.AddFragment"
     style="@style/loginParent">
 
     <LinearLayout
@@ -48,14 +48,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="15dp">
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:id="@+id/datePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                android:background="@drawable/bg_tv_button"
+                android:gravity="center"
                 android:text="Выберите Дату" />
 
             <TextView
@@ -63,13 +65,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                />
+                android:gravity="center"
+                android:background="@drawable/bg_tv_button"
+                android:text="Выберите Исполнителя" />
         </LinearLayout>
     </LinearLayout>
 
     <ListView
         style="@style/taskCard"
-        android:id="@+id/toDoList"
+        android:id="@+id/pointList"
         android:layout_width="match_parent"
         android:padding="20dp"
         android:layout_marginLeft="15dp"

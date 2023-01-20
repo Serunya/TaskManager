@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.addtask.addActivity">
+    android:background="#ffffff"
+    tools:context=".ui.addtask.AddTaskActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/addFragmentContriner"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</FrameLayout>
+
+    <include layout="@layout/fragment_add" />
+    <!-- Adding bottom sheet after main content -->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
