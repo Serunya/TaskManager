@@ -1,28 +1,21 @@
 package com.example.taskmanager.ui.mainmenu
 
-import android.app.Application
-import android.content.Intent
-import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.taskmanager.api.TaskApi
-import com.example.taskmanager.api.TaskController
 import com.example.taskmanager.api.UserApi
-import com.example.taskmanager.payload.request.LoginRequest
 import com.example.taskmanager.payload.response.BaseResponse
-import com.example.taskmanager.payload.response.LoginResponse
 import com.example.taskmanager.payload.response.TaskResponse
 import com.example.taskmanager.payload.response.UserResponse
-import com.example.taskmanager.ui.authorize.AuthActivity
 import kotlinx.coroutines.launch
 import retrofit2.Response
-import java.lang.Exception
+import kotlin.Exception
 
 class MainMenuVM() : ViewModel() {
     val taskResult: MutableLiveData<BaseResponse<Array<TaskResponse>>> = MutableLiveData()
     val usernameResult: MutableLiveData<BaseResponse<UserResponse>> = MutableLiveData()
+    val allUserNameResult: MutableLiveData<BaseResponse<Array<UserResponse>>> = MutableLiveData()
 
     fun requestUserName() {
         usernameResult.value = BaseResponse.Loading()
@@ -41,6 +34,24 @@ class MainMenuVM() : ViewModel() {
         }
     }
 
+    fun getAllUsernameResponse() {
+        allUserNameResult.value = BaseResponse.Loading()
+        viewModelScope.launch {
+            try {
+                val response = getAllUsername()
+                if (response?.code() == 200) {
+                    allUserNameResult.value = BaseResponse.Success(response.body())
+                } else {
+                    allUserNameResult.value = BaseResponse.Error(
+                        response?.message() ?: "Неизвестная ошибка",
+                        response?.code() ?: 404
+                    )
+                }
+            }catch (ex : Exception){
+                allUserNameResult.value = BaseResponse.Error(ex.message ?: "Неизвестная ошибка",404)
+            }
+        }
+    }
 
     fun getTask() {
         taskResult.value = BaseResponse.Loading()
@@ -63,8 +74,12 @@ class MainMenuVM() : ViewModel() {
         return TaskApi.getApi()?.getAllTask()
     }
 
-    private suspend fun getUserName() : Response<UserResponse>? {
+    private suspend fun getUserName(): Response<UserResponse>? {
         return UserApi.getApi()?.getUserName()
+    }
+
+    private suspend fun getAllUsername(): Response<Array<UserResponse>>? {
+        return UserApi.getApi()?.getAllUser()
     }
 
 }

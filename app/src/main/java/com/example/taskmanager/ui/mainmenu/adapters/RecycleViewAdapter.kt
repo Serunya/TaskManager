@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskmanager.R
+import com.example.taskmanager.api.UserController
 import com.example.taskmanager.payload.response.TaskResponse
 import com.example.taskmanager.ui.task.TaskActivity
 
@@ -32,7 +33,7 @@ class RecycleViewAdapter(val context: Context,val tasks: ArrayList<TaskResponse>
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.text = tasks.get(position).title
         holder.description.text = tasks.get(position).description
-        holder.executor.text = tasks.get(position).executorId.toString()
+        holder.executor.text = UserController.getUser(tasks.get(position).executorId)
         holder.date.text = tasks.get(position).deadLine
         holder.view.setOnClickListener({
             val intent = Intent(context, TaskActivity::class.java)

@@ -2,11 +2,12 @@ package com.example.taskmanager.ui.mainmenu
 
 import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -16,6 +17,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.taskmanager.R
 import com.example.taskmanager.api.ApiClient
 import com.example.taskmanager.api.TaskController
+import com.example.taskmanager.api.UserController
 import com.example.taskmanager.databinding.ActivityMainMenuBinding
 import com.example.taskmanager.payload.response.BaseResponse
 import com.example.taskmanager.ui.addtask.AddTaskActivity
@@ -28,9 +30,9 @@ class MainMenu : AppCompatActivity() {
     private val viewModel: MainMenuVM by viewModels()
     private lateinit var loadingDialog: AlertDialog
 
-
     private var endUserNameDownload = false;
     private var endTasksDownload = false;
+    private var endAllUserDownlad = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,9 +64,9 @@ class MainMenu : AppCompatActivity() {
                     endDowndload()
                 }
                 is BaseResponse.Error -> {
+                    Toast.makeText(this, "Ошибка авторизации", Toast.LENGTH_LONG).show()
                     val intent = Intent(this, AuthActivity::class.java)
                     ApiClient.tokenRepository?.clearData()
-                    Toast.makeText(this, "Ошибка авторизации", Toast.LENGTH_LONG).show()
                     startActivity(intent)
                 }
             }
@@ -84,6 +86,22 @@ class MainMenu : AppCompatActivity() {
             }
         }
 
+        viewModel.getAllUsernameResponse()
+        viewModel.allUserNameResult.observe(this) {
+            when (it) {
+                is BaseResponse.Loading -> {}
+                is BaseResponse.Error -> {}
+                is BaseResponse.Success -> {
+                    it.data?.let { it1 -> UserController.addUsers(it1) }
+                    endAllUserDownlad = true
+                    endDowndload()
+                }
+            }
+        }
+
+
+        findViewById<TextView>(R.id.logoutButton).setOnClickListener{ view -> logout(view) }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -91,9 +109,15 @@ class MainMenu : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    fun logout(item: View){
+        val intent = Intent(this, AuthActivity::class.java)
+        ApiClient.tokenRepository?.clearData()
+        startActivity(intent)
+    }
+
 
     private fun endDowndload() {
-        if (endUserNameDownload && endTasksDownload) {
+        if (endUserNameDownload && endTasksDownload && endAllUserDownlad) {
             loadingDialog.dismiss()
             val drawerLayout: DrawerLayout = binding.drawerLayout
             val navView: NavigationView = binding.navView
@@ -107,4 +131,9 @@ class MainMenu : AppCompatActivity() {
             navView.setupWithNavController(navController)
         }
     }
+
+
+    override fun onBackPressed() {
+    }
+
 }

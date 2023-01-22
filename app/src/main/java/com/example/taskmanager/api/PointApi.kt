@@ -1,5 +1,6 @@
 package com.example.taskmanager.api
 
+import com.example.taskmanager.payload.request.PointStatusRequest
 import com.example.taskmanager.payload.request.PointsRequest
 import com.example.taskmanager.payload.response.PointResponse
 import retrofit2.Response
@@ -13,6 +14,9 @@ interface PointApi {
     suspend fun getAllPoint(@Query("taskId") taskId : Int): Response<Array<PointResponse>>
     @POST("/api/point/addPoints")
     suspend fun addPoints(@Body points : PointsRequest) : Response<String>
+    @POST("/api/point/editPointStatus")
+    suspend fun editPointStatus(@Body pointStatusRequest: PointStatusRequest)
+
 
 
     companion object{

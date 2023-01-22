@@ -9,16 +9,21 @@ import com.example.taskmanager.payload.response.TaskResponse
 import com.example.taskmanager.ui.task.MainFragment.MainTaskFragment
 
 
-class PageAdapter(fm: FragmentActivity,val task : TaskResponse, val points : ArrayList<PointResponse>,val userId: Int,val executor: String) : FragmentStateAdapter(fm) {
+class PageAdapter(fm: FragmentActivity) : FragmentStateAdapter(fm) {
+
+    val mainTaskFragment = MainTaskFragment()
+    val chatFragment = ChatFragment()
+
+
     override fun getItemCount(): Int {
         return 2
     }
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 -> MainTaskFragment(task, points,userId,executor)
-            1 -> ChatFragment()
-            else -> MainTaskFragment(task,points,userId,executor)
+            0 -> mainTaskFragment
+            1 -> chatFragment
+            else -> mainTaskFragment
         }
     }
 

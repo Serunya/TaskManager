@@ -12,12 +12,13 @@
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/drawable-v24/ic_menu_plus.xml" value="0.112" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/drawable-v24/ic_menu_task.xml" value="0.112" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/drawable-v24/ic_send_black_24dp.xml" value="0.112" />
+        <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/bg_temp_avatar.xml" value="0.112" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/bg_tv_button.xml" value="0.112" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1095" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_add.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_auth.xml" value="0.14" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_main.xml" value="0.15896739130434784" />
-        <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_main_menu.xml" value="0.1" />
+        <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_main_menu.xml" value="0.22" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_task.xml" value="0.1" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/add_point.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/app_bar_main.xml" value="0.25" />
@@ -34,12 +35,12 @@
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/fragment_sign_in_fragmanet.xml" value="0.1" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/fragment_todo.xml" value="0.1" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/loading_dialog.xml" value="0.15896739130434784" />
-        <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/nav_header_main.xml" value="0.1" />
+        <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/nav_header_main.xml" value="0.25" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/point.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/task_view.xml" value="0.12" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/todo.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/layout/user_name_item.xml" value="0.1" />
-        <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/menu/drawer_menu.xml" value="0.1" />
+        <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/menu/drawer_menu.xml" value="0.25" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
         <entry key="..\:/Users/TailSpin/AndroidStudioProjects/TaskManager/app/src/main/res/xml/network_security_config.xml" value="0.1" />

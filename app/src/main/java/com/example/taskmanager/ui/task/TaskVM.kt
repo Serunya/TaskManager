@@ -22,8 +22,10 @@ class TaskVM : ViewModel() {
     val userResult: MutableLiveData<BaseResponse<UserResponse>> = MutableLiveData()
     val executorResult: MutableLiveData<BaseResponse<UserResponse>> = MutableLiveData()
 
-    private var task: TaskResponse? = null
-    private var points: Array<PointResponse>? = null
+    val points: ArrayList<PointResponse> = ArrayList()
+    var task: TaskResponse? = null
+    var userId: Int = 0
+    var executor: String = ""
 
     fun getUser() {
         userResult.value = BaseResponse.Loading()
@@ -44,10 +46,6 @@ class TaskVM : ViewModel() {
 
 
     fun getTask(id: Int) {
-        if (task?.id == id) {
-            taskResult.value = BaseResponse.Success(task)
-            return
-        }
         taskResult.value = BaseResponse.Loading()
         viewModelScope.launch {
             try {
@@ -66,10 +64,6 @@ class TaskVM : ViewModel() {
 
 
     fun getAllPoints(taskId: Int) {
-        if (task?.id == taskId) {
-            pointResult.value = BaseResponse.Success(points)
-            return
-        }
         taskResult.value = BaseResponse.Loading()
         viewModelScope.launch {
             try {
