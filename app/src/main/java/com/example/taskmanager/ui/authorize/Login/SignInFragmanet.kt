@@ -15,16 +15,21 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import com.example.taskmanager.R
 import com.example.taskmanager.api.ApiClient
 import com.example.taskmanager.payload.response.BaseResponse
+import com.example.taskmanager.ui.authorize.registry.SignUpFragment
 import com.example.taskmanager.ui.mainmenu.MainMenu
 
 
 class SignInFragmanet() : Fragment() {
     private lateinit var viewModel : LoginVM
     private lateinit var loadingDialog : AlertDialog
+    val updateFragment = MutableLiveData<Boolean>(false)
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +48,9 @@ class SignInFragmanet() : Fragment() {
             navigateToHome()
         }
         val fragment = inflater.inflate(R.layout.fragment_sign_in, container, false);
+        fragment.findViewById<TextView>(R.id.swipeInToUp).setOnClickListener{
+            updateFragment.value = true
+        }
         val errorTV : TextView = fragment.findViewById(R.id.errorView)
         viewModel.loginResult.observe(viewLifecycleOwner){
             when(it){

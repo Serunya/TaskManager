@@ -58,6 +58,7 @@
             android:text="Войти" />
 
         <TextView
+            android:id="@+id/swipeInToUp"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="@string/login_signup_hint"
