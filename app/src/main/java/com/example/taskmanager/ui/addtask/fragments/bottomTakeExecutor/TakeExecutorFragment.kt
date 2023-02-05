@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskmanager.R
-import com.example.taskmanager.ui.addtask.adapters.UsersViewAdapter
+import com.example.taskmanager.ui.addtask.fragments.bottomTakeExecutor.adapters.UsersViewAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class TakeExecutorFragment : BottomSheetDialogFragment() {

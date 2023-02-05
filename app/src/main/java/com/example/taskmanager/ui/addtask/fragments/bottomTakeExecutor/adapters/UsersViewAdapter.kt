@@ -1,4 +1,4 @@
-package com.example.taskmanager.ui.addtask.adapters
+package com.example.taskmanager.ui.addtask.fragments.bottomTakeExecutor.adapters
 
 import android.os.Bundle
 import android.view.LayoutInflater

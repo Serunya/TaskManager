@@ -1,4 +1,4 @@
-package com.example.taskmanager.ui.addtask.adapters;
+package com.example.taskmanager.ui.addtask.fragments.bottomTakeExecutor.adapters;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,7 +12,6 @@ import android.widget.Toast;
 import com.example.taskmanager.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PointviewAdapter extends BaseAdapter {
 

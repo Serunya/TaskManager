@@ -13,7 +13,7 @@ import androidx.fragment.app.setFragmentResultListener
 import com.example.taskmanager.R
 import com.example.taskmanager.payload.request.TaskRequest
 import com.example.taskmanager.payload.response.BaseResponse
-import com.example.taskmanager.ui.addtask.adapters.PointviewAdapter
+import com.example.taskmanager.ui.addtask.fragments.bottomTakeExecutor.adapters.PointviewAdapter
 import com.example.taskmanager.ui.addtask.fragments.bottomTakeExecutor.TakeExecutorFragment
 import com.example.taskmanager.ui.mainmenu.MainMenu
 import java.util.*

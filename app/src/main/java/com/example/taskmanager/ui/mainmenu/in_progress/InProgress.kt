@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskmanager.R
 import com.example.taskmanager.api.TaskController
-import com.example.taskmanager.ui.mainmenu.adapters.ListViewAdapter
 import com.example.taskmanager.ui.mainmenu.adapters.RecycleViewAdapter
 
 class InProgress : Fragment() {

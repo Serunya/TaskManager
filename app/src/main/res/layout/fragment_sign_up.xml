@@ -48,9 +48,9 @@
             style="@style/parent"
             android:layout_marginTop="15dp">
             <EditText
-                android:id="@+id/regEmail"
+                android:id="@+id/regLogin"
                 style="@style/modifiedEditText"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:maxLines="1"
                 android:hint="@string/login_email_hint"/>
         </com.google.android.material.textfield.TextInputLayout>
